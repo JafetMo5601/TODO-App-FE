@@ -1,0 +1,38 @@
+* {
+  color: black;
+}
+
+div {
+  -ms-overflow-style: none; /* for Internet Explorer, Edge */
+  scrollbar-width: none; /* for Firefox */
+}
+
+div::-webkit-scrollbar {
+  display: none;
+}
+
+.flex-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+}
+
+.wrapper-container {
+  position: absolute;
+  left: 50%;
+  top: 55%;
+  height: 70%;
+  transform: translate(-50%, -50%);
+  width: calc(90% - 150px);
+}
+
+.panels-container {
+  height: 90%;
+  overflow: auto;
+  overflow-x: hidden;
+  margin-top: 5vh;
+}

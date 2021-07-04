@@ -1,0 +1,88 @@
+<form class="text-center" style="color: black;" (ngSubmit)="submitForm()" [formGroup]="newTaskForm">
+    <section class="container section-one" id="section-one" #sectionOne>
+        <div class="max-width">
+            <div class="section-one-content">
+                <div class=" md-form mt-3">
+                    <div class="md-form">
+                        <mat-form-field appearance="legacy" style="margin-top: -4%;">
+                            <mat-label for="taskDescription" class="form-label" *ngIf="!taskDescription.value">
+                                {{ descriptionText }}
+                            </mat-label>
+                            <input matInput placeholder="{{ placeholder }}" type="text"
+                                formControlName="taskDescription" required>
+                            <mat-error>A description should be typed!</mat-error>
+                        </mat-form-field>
+                    </div>
+                    <!-- ################# ICON ################# -->
+                    <!-- <input type="text" id="materialContactFormName" class="form-control" mdbInput> -->
+
+                    <div class="md-form">
+                        <h2>
+                            Task Priority
+                        </h2>
+                        <div class="slider-container">
+                            <label>No rush... </label>
+                            <mat-slider [max]="3" [min]="1" [step]="1" [value]="1" formControlName="priorityId">
+                            </mat-slider>
+                            <label>Urgent!</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <a (click)="scroll(sectionTwo)"><span></span></a>
+    </section>
+
+    <section class="container section-two" id="section-two" #sectionTwo>
+        <div class="max-width">
+            <div class="section-two-content">
+                <div class="md-form">
+                    <mat-form-field appearance="legacy">
+                        <mat-select formControlName="statusId" placeholder="Choose the status of the task">
+                            <mat-option *ngFor="let status of statusList" [value]="status.value">
+                                <span>{{ status.label }}</span>
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+
+                <div class="md-form">
+                    <label id="task-types-label">Which kind of task is this one?</label>
+                    <mat-radio-group formControlName="taskTypeId">
+                        <div class="flex-container container">
+                            <mat-radio-button *ngFor="let type of taskTypes" [value]="type.id" style="font-size: 15px;">
+                                <span>{{ type.name }}</span>
+                            </mat-radio-button>
+                        </div>
+                    </mat-radio-group>
+                </div>
+            </div>
+        </div>
+        <a (click)="scroll(sectionThree)"><span></span></a>
+    </section>
+
+    <section class="container section-three" id="section-three" #sectionThree>
+        <div class="max-width">
+            <div class="section-three-content">
+                <div class="md-form">
+                    <label id="tags-label">Select a tag for you task</label>
+                    <mat-chip-list formControlName="tagId">
+                        <div class="flex-container container">
+                            <mat-chip #c="matChip" class="flex-item" *ngFor="let tag of tags" [value]="tag.id"
+                                (click)="tagSelection(c)">
+                                {{ tag.name }}
+                            </mat-chip>
+                        </div>
+                    </mat-chip-list>
+                </div>
+                <button mat-raised-button type="submit" rounded="true" color="primary" class="btn btn-primary"
+                    id="submit-button">
+                    Create task
+                </button>
+            </div>
+            <div id="back-top">
+                <p><a (click)="scroll(sectionOne)">&lt; Scroll to top</a></p>
+            </div>
+        </div>
+    </section>
+</form>

@@ -1,0 +1,26 @@
+<div class="flex-container">
+    <div class='wrapper-container'>
+        <div class='row'>
+            <app-search-bar #child></app-search-bar>
+        </div>
+
+        <div class="panels-container">
+            <mat-expansion-panel hideToggle *ngFor='let task of tasks | filter: child.filter'>
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        {{ task.statusId }}
+                    </mat-panel-title>
+                    <mat-panel-description>
+                        {{ task.taskDescription }}
+                    </mat-panel-description>
+                </mat-expansion-panel-header>
+                <h4 style="padding-top: 20px;">More Details:</h4>
+                <div class="row align-items-center" style="padding-top: 20px;">
+                    <p class="col">Type: {{ task.taskTypeId }}</p>
+                    <p class="col">Current priority: {{ task.priorityId }}</p>
+                    <p class="col">Tag: {{ task.tagId }}</p>
+                </div>
+            </mat-expansion-panel>
+        </div>
+    </div>
+</div>

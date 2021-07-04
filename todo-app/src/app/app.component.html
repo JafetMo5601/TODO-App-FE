@@ -1,0 +1,32 @@
+<nav class="navbar navbar-expand-lg">
+  <div class="container-fluid">
+    <a href="/" class="navbar-brand text-decoration-none" routerLink='/home'>
+      <p id="nav-title"> {{ navTitle }} </p>
+    </a>
+    <ul class="nav nav-pills">
+      <li>
+        <a class="nav-link" routerLink='home'>
+          <i class="bi bi-house-fill" id="nav-icons"></i>
+        </a>
+      </li>
+      <li>
+        <a class="nav-link" routerLink='task/list'>
+          <i class="bi bi-list-task" id="nav-icons"></i>
+        </a>
+      </li>
+      <li>
+        <a class="nav-link">
+          <i class="bi bi-columns-gap" id="nav-icons"></i>
+        </a>
+      </li>
+      <li>
+        <a href="#" class="nav-link">
+          <i class="bi bi-person-circle" id="nav-icons"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+</nav>
+<div id="content-xd" [@routeAnimations]="prepareRoute(outlet)">
+  <router-outlet #outlet="outlet"></router-outlet>
+</div>

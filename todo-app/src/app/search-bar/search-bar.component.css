@@ -1,0 +1,21 @@
+.search-container {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+mat-icon {
+  margin-left: 20px;
+}
+
+input {
+  text-align: center;
+}
+
+::-webkit-input-placeholder {
+  text-align: center;
+}
+
+:-moz-placeholder {
+  text-align: center;
+}

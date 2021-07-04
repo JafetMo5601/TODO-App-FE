@@ -1,0 +1,29 @@
+* {
+  /* background: white; */
+  color: #ffffff !important;
+}
+
+content-xd {
+  background: #fff;
+}
+
+nav {
+  background: #003f88;
+  position: fixed;
+  z-index: 5;
+  width: 100%;
+  padding: 2% 5%;
+}
+
+div .container {
+  padding: 20px 0;
+}
+
+#nav-icons {
+  font-size: 1.7rem;
+}
+
+#nav-title {
+  margin: 0;
+  font-size: 1.5rem;
+}
